@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block page %}
+    <div class="container mt-3">
+        <div class="row">
+            <div class="col-12"> 
+                <a href="{% url "index" %}" class="btn btn-dark">Geri dön</a>
+                <table class="table table-sm table-bordered mt-3">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Domain</th>
+                            <th>Type</th>
+                            <th>Data</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for item in history %}
+                        <tr>
+                            <td>{{ item.id }}  </td>
+                            <td>{{ item.target }}  </td>
+                            <td>{{ item.result_type }}  </td>
+                            <td>{{ item.result_data }}  </td>       
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock page %}
+

@@ -1,0 +1,13 @@
+Zaman Aşımı:
+
+Dns sorgusu yaparken zaman aşımına uğrayıp hata alabiliyoruz bunun için;
+timeout parametresi ekleyerek belirli bir zaman aşaması olması durumunda,
+hata mesajı yazdırabiliriz.
+ - from dns.exception import Timeout
+
+NXDOMAIN Hatası:
+
+Rasgtele bir değer girildiğinde, geçerli domain girilmediğinde;
+Nxdomain hatası geliyor
+try except ile çözüm yolları aranır.
+ - from dns.exception import NXDOMAIN

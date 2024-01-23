@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block page %}
+
+<div class="container mt-3">
+    <div class="row">
+        <div class="col-12 ">
+
+            <form action="{% url "index" %}" method="post" class="mt-5">
+                {% csrf_token %}
+                <label for="target">Domain girin</label>
+                <input type="text" id="target" name="target" required>
+                <button class="btn btn-success" type="submit">Kontrol Et</button>
+            </form>
+            
+            <table class="table table-bordered mt-3">
+                <thead>
+                    <tr>
+                        <th>Type</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for result_type, result in results %}
+                        <tr>
+                            <td><h1>{{ result_type }}</h1> </td>
+                            <td> <h5>{{ result }}</h5> </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <a href="{% url "result_graphic" %}" class="btn btn-dark mt-3">Sonuçların Grafiği</a><br>
+            <a href="{% url "past_fifty" %}" class="btn btn-dark mt-3">Son 50 Sorgu </a><br>
+            <a href="{% url "show_history" %}" class="btn btn-dark mt-3">Geçmiş</a>
+        </div>
+    </div>
+</div>
+
+{% endblock page %}
+

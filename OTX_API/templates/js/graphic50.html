@@ -1,0 +1,23 @@
+<script>
+    const ctx = document.getElementById('myChart').getContext('2d');
+  
+    new Chart(ctx, {
+      type: 'pie',
+      data: {
+        labels: ["Zararlı", "Zararlı Değil"],
+        datasets: [{
+          label: 'Zararlı/Zararlı Değil Yüzdesel Dağılım',
+          data: [{{ zararli_percentage }}, {{ zararli_degil_percentage }}],
+          backgroundColor: [
+                'rgba(156, 8, 5, 0.5)', // Zararlı
+                'rgba(3, 135, 0, 0.5)'  // Zararlı Değil
+            ],
+            borderWidth: 1
+        }]
+      },
+      options: {
+        responsive: true, //tarayıcı boyutuna göre boyutlanır
+        maintainAspectRatio: false, //oran korumasını devre dışı bırakmak için yazıldı.
+      }
+    });
+</script>

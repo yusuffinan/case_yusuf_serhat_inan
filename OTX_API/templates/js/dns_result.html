@@ -1,0 +1,19 @@
+<script>
+    const ctx_dns = document.getElementById('dnsChart').getContext('2d');
+  
+    new Chart(ctx_dns, {
+      type: 'bar',
+      data: {
+        labels: {{ record_types|safe }}, //safe kullanarak bilginin engellemesini önledim.
+        datasets: [{
+            label: 'DNS Sorgu Sayıları',
+            data: {{ record_counts|safe }}, //Django varsayılan durum sebebiyle safe kullandım bu bilgi güvenli dedim.
+            borderWidth: 1
+        }]
+      },
+      options: {
+        responsive: true, 
+        maintainAspectRatio: false, 
+      }
+    });
+</script>
