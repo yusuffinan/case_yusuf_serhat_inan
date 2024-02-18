@@ -7,7 +7,7 @@ def save_results(target, result_type, result_data):
     ResultModel.objects.create(target=target, result_type=result_type, result_data=result_data)
 
 def otx_api(target):
-    api_key = "a3756e3643d66bcd824681d1d260b90bd2ed00a391ddb8a0d16752ce13c16186"
+    api_key = "key"
     url = f"https://otx.alienvault.com/api/v1/indicators/domain/{target}/"
 
     #api calls https://gist.github.com/chrisdoman/3cccfbf6f07cf007271bec583305eb92
